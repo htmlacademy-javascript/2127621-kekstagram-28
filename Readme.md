@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Roman Danilevskij](https://up.htmlacademy.ru/javascript/28/user/2127621).
-* Наставник: [Виктория Никитина](https://htmlacademy.ru/profile/vikitina).
+* Наставник: [Виктория Никитина](https://htmlacademy.ru/profile/id1217273).
 
 ---
 
