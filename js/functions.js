@@ -4,11 +4,11 @@ const checkStringLength = (string, maxLength) => {
   if (string.maxLength <= maxLength) {
     return true
   } else {
-    return false;
+    return false
   }
-};
+}
 
-checkStringLength('проверяемая строка', 20);
+checkStringLength('проверяемая строка', 20)
 
 /*
 Рефакторинг-1:
@@ -39,16 +39,16 @@ checkStringLength('проверяемая строка', 20);
 const isPalindrom = (string) => {
   const newString = string
     .toLowerCase()
-    .replaceAll(' ', '');
+    .replaceAll(' ', '')
 
-  let reverseString = '';
+  let reverseString = ''
   for (let i = newString.length - 1; i >= 0; i = i - 1) {
-    reverseString = reverseString + newString.at(i);
+    reverseString = reverseString + newString.at(i)
   }
-  return newString === reverseString;
-};
+  return newString === reverseString
+}
 
-isPalindrom('Лёша на полке клопа нашёл ');
+isPalindrom('Лёша на полке клопа нашёл ')
 
 /*
 
@@ -78,18 +78,18 @@ isPolindrome('Лёша на полке клопа нашёл ');
 
 const extractNumber = (string) => {
   if (typeof string === 'number') {
-    return string;
+    return string
   }
-  let result = '';
+  let result = ''
   for (let i = 0; i < string.length; i = i + 1) {
     if (!Number.isNaN(parseInt(string.at(i), 10))) {
-      result = result + string.at(i);
+      result = result + string.at(i)
     }
   }
-  return parseInt(result, 10);
-};
+  return parseInt(result, 10)
+}
 
-extractNumber('1 кефир, 0.5 батона');
+extractNumber('1 кефир, 0.5 батона')
 
 /*
 
@@ -113,20 +113,20 @@ extractNumber('ECMAScript 2022');
 // Четвертая задачка
 
 const myPadStart = (string, minLength, pad) => {
-  const actualPad = minLength - string.length;
+  const actualPad = minLength - string.length
 
   if (actualPad <= 0) {
-    return string;
+    return string
   }
 
-  const tempPad = pad.slice(0, actualPad % pad.length);
+  const tempPad = pad.slice(0, actualPad % pad.length)
 
-  const tempRepeat = pad.repeat(actualPad / pad.length);
+  const tempRepeat = pad.repeat(actualPad / pad.length)
 
-  return tempPad + tempRepeat + string;
-};
+  return tempPad + tempRepeat + string
+}
 
-myPadStart('q', 4, 'we');
+myPadStart('q', 4, 'we')
 
 /*
 
