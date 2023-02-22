@@ -2,7 +2,7 @@
 
 const checkStringLength = (string, maxLength) => {
   if (string.maxLength <= maxLength) {
-    return true;
+    return true
   } else {
     return false;
   }
@@ -36,16 +36,16 @@ checkStringLength('проверяемая строка', 20);
 
 // Вторая задачка
 
-const isPalindrom = (string) => { //объявляем функцию, которая принимает один параметр
+const isPalindrom = (string) => {//объявляем функцию, которая принимает один параметр
   const newString = string
-    .toLowerCase() //приводим к нижнему регистру
-    .replaceAll(' ', ''); //выполняет замену с 'пробел' на '' - пустота)
+    .toLowerCase()//приводим к нижнему регистру
+    .replaceAll(' ', '');//выполняет замену с 'пробел' на '' - пустота)
 
-  let reverseString = ''; //объявляем пустую переменную для цикла
-  for (let i = newString.length - 1; i >= 0; i = i - 1) { //запускаем цикл для переворота (обращаемся к новойстроке с конца; счетчик >= 0 (до 1й буквы); идем с конца слова)
-    reverseString = reverseString + newString.at(i); //обновляем/прибавляем на каждой итерации в переменную reverseString очередной символ с помощью at(i)
+  let reverseString = '';//объявляем пустую переменную для цикла
+  for (let i = newString.length - 1; i >= 0; i = i - 1) {//запускаем цикл для переворота (обращаемся к новойстроке с конца; счетчик >= 0 (до 1й буквы); идем с конца слова)
+    reverseString = reverseString + newString.at(i);//обновляем/прибавляем на каждой итерации в переменную reverseString очередной символ с помощью at(i)
   }
-  return newString === reverseString; //сравниваем
+  return newString === reverseString;//сравниваем
 };
 
 isPalindrom('Лёша на полке клопа нашёл ');
@@ -77,13 +77,13 @@ isPolindrome('Лёша на полке клопа нашёл ');
 // Третья задачка
 
 const extractNumber = (string) => {
-  if (typeof string === 'number') { //проверка, если строка - это число
+  if (typeof string === 'number') {//проверка, если строка - это число
     return string; //тогда верни как есть
   }
-  let result = ''; //объявлем переменну через let - так как она будет меняться
-  for (let i = 0; i < string.length; i = i + 1) { //запускаем цикл
-    if (!Number.isNaN(parseInt(string.at(i), 10))) { //сначала parseInt пытаеться преобразовать символ к числу, затем результат попадает в isNaN и проверяется - это значение NaТ?
-      result = result + string.at(i); //в result записываем очередной символ
+  let result = '';//объявлем переменну через let - так как она будет меняться
+  for (let i = 0; i < string.length; i = i + 1) {//запускаем цикл
+    if (!Number.isNaN(parseInt(string.at(i), 10))) {//сначала parseInt пытаеться преобразовать символ к числу, затем результат попадает в isNaN и проверяется - это значение NaТ?
+      result = result + string.at(i);//в result записываем очередной символ
     }
   }
   return parseInt(result, 10);
@@ -113,14 +113,14 @@ extractNumber('ECMAScript 2022');
 // Четвертая задачка
 
 const myPadStart = (string, minLength, pad) => {
-  const actualPad = minLength - string.length; //получаем разницу
+  const actualPad = minLength - string.length;//получаем разницу
   //console.log('actualPad', actualPad); - проверка
 
   if (actualPad <= 0) {
     return string;
   }
 
-  const tempPad = pad.slice(0, actualPad % pad.length); //slice - копируем с 0 символа
+  const tempPad = pad.slice(0, actualPad % pad.length);//slice - копируем с 0 символа
   //console.log('tempPad', tempPad); - проверка
 
   const tempRepeat = pad.repeat(actualPad / pad.length);
