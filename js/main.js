@@ -1,4 +1,5 @@
 import { getPhotos } from './data.js';
 import { PHOTOS_COUNT } from './constans.js';
+import { renderThumbnails } from './thumbnail.js';
 
-console.log(getPhotos(PHOTOS_COUNT));
+renderThumbnails(getPhotos(PHOTOS_COUNT));
