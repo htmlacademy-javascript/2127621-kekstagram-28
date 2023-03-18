@@ -9,7 +9,7 @@ const renderThumbnail = (photo) => {
   thumbnailElement.querySelector('.picture__likes').textContent = photo.likes;
   return thumbnailElement;
 };
-
+ 
 const renderThumbnails = (photos) => {
   photos.forEach((photo) => {
     console.log('photo ---', photo);
