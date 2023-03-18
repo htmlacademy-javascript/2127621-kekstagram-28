@@ -36,7 +36,6 @@ checkStringLength('проверяемая строка', 20);
 
 // Вторая задачка
 
-
 const isPalindrom = (string) => {
   const newString = string
     .toLowerCase()
