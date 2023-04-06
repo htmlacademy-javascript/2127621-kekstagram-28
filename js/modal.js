@@ -14,10 +14,12 @@ let commentTotal = 0;
 
 const showModal = () => {
   modal.classList.remove('hidden');
+  document.body.classList.add('modal-open');
 };
 
 const hideModal = () => {
   modal.classList.add('hidden');
+  document.body.classList.remove('modal-open');
 };
 
 const renderPhoto = (photo) => {

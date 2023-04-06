@@ -27,6 +27,9 @@ const NAMES = [
   'Артем',
   'Анна'
 ]
+const MAX_LENGTH_DESCRIPTION = 140;
+const REGULAR_HASHTAG = /^#[a-zа-яё0-9]{1,19}$/i;
+const HASHTAG_COUNT = 5;
 
 export {
   PHOTOS_COUNT,
@@ -40,5 +43,8 @@ export {
   MIN_AVATAR,
   MAX_AVATAR,
   MESSAGES,
-  NAMES
+  NAMES,
+  MAX_LENGTH_DESCRIPTION,
+  REGULAR_HASHTAG,
+  HASHTAG_COUNT
 };
