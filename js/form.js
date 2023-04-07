@@ -1,4 +1,6 @@
 import { validateForm } from './validation.js';
+import { resetScale } from './scale.js';
+import { resetEffects } from './effects.js';
 
 const uploadFileInput = document.querySelector('.img-upload__input');
 const modalForm = document.querySelector('.img-upload__overlay');
@@ -11,6 +13,8 @@ const showModalForm = () => {
   document.body.classList.add('modal-open');
   const fileImage = uploadFileInput.files[0];
   imagePreview.src = URL.createObjectURL(fileImage);
+  resetScale();
+  resetEffects();
 };
 
 const hideModalForm = () => {
@@ -24,7 +28,7 @@ uploadFileInput.addEventListener('change', () => {
 
 modalFormCloseButton.addEventListener('click', () => {
   hideModalForm();
-  modalForm.reset();
+  form.reset();
 });
 
 form.addEventListener('submit', (evt) => {
