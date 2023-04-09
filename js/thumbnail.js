@@ -13,14 +13,19 @@ const renderThumbnail = (photo) => {
   return thumbnailElement;
 };
 
+const clearThumbnailsContainer = () => {
+  document.querySelectorAll('.picture').forEach((item) => {
+    item.remove();
+  });
+};
+
 const renderThumbnails = (photos) => {
   photos.forEach((photo) => {
-    console.log('photo ---', photo);
+    clearThumbnailsContainer();
     fragment.append(renderThumbnail(photo));
   });
   container.append(fragment);
   container.addEventListener('click', (evt) => {
-    console.log(evt.target);
     if (evt.target.classList.contains('picture__img')) {
       const id = evt.target.closest('a').dataset.id * 1;
       const photo = photos.find((item) => item.id === id);
