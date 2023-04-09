@@ -8,15 +8,9 @@ const commentList = modal.querySelector('.social__comments');
 const commentCount = modal.querySelector('.social__comment-count');
 const loadButton = modal.querySelector('.social__comments-loader');
 
-let comments = [];
+const comments = [];
 let commentStatistic = 0;
 let commentTotal = 0;
-
-const escapeModalHandler = (evt) => {
-  if (evt.key === 'Escape') {
-    hideModal();
-  }
-};
 
 const showModal = () => {
   modal.classList.remove('hidden');
@@ -40,6 +34,12 @@ const renderPhoto = (photo) => {
 const closeModalHandler = () => {
   hideModal();
 };
+
+function escapeModalHandler(evt) {
+  if (evt.key === 'Escape') {
+    hideModal();
+  }
+}
 
 modalCloseButton.addEventListener('click', closeModalHandler);
 
@@ -70,7 +70,7 @@ const renderComments = () => {
   }
 };
 
-loadButton.addEventListener('click', (evt) => {
+loadButton.addEventListener('click', () => {
   renderComments();
 });
 
