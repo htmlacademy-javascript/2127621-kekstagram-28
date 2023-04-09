@@ -5,12 +5,12 @@ const imagePreview = document.querySelector('.img-upload__preview img');
 const valueElement = document.querySelector('.effect-level__value');
 
 noUiSlider.create(sliderElement, {
-    range: {
-      min: 0,
-      max: 100,
-    },
-    start: 80,
-    connect: 'lower',
+  range: {
+    min: 0,
+    max: 100,
+  },
+  start: 80,
+  connect: 'lower',
 });
 
 const updateSliderOption = (effect) => {

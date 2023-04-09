@@ -1,6 +1,6 @@
 import { ALERT_SHOW_TIME } from './constans.js';
 
-function debounce (callback, timeoutDelay = 500) {
+function debounce(callback, timeoutDelay = 500) {
   let timeoutId;
   return (...rest) => {
     clearTimeout(timeoutId);

@@ -12,6 +12,12 @@ let comments = [];
 let commentStatistic = 0;
 let commentTotal = 0;
 
+const escapeModalHandler = (evt) => {
+  if (evt.key === 'Escape') {
+    hideModal();
+  }
+};
+
 const showModal = () => {
   modal.classList.remove('hidden');
   document.body.classList.add('modal-open');
@@ -22,12 +28,6 @@ const hideModal = () => {
   modal.classList.add('hidden');
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', escapeModalHandler);
-};
-
-const escapeModalHandler = (evt) => {
-  if (evt.key === 'Escape') {
-    hideModal();
-  }
 };
 
 const renderPhoto = (photo) => {
@@ -82,8 +82,7 @@ const openModal = (photo) => {
   commentTotal = photo.comments.length;
   commentList.innerHTML = '';
   comments.push(...photo.comments.slice());
-  console.log(comments);
   renderComments();
 };
 
-export { openModal }
+export { openModal };

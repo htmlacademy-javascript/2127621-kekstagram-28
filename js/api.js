@@ -9,7 +9,8 @@ const getPhotos = () =>
       return response.json();
     })
     .catch(() => {
-  });
+      throw new Error();
+    });
 
 const postPhoto = (data) =>
   fetch(POST_DATA, {
