@@ -15,11 +15,19 @@ let commentTotal = 0;
 const showModal = () => {
   modal.classList.remove('hidden');
   document.body.classList.add('modal-open');
+  document.addEventListener('keydown', escapeModalHandler);
 };
 
 const hideModal = () => {
   modal.classList.add('hidden');
   document.body.classList.remove('modal-open');
+  document.removeEventListener('keydown', escapeModalHandler);
+};
+
+const escapeModalHandler = (evt) => {
+  if (evt.key === 'Escape') {
+    hideModal();
+  }
 };
 
 const renderPhoto = (photo) => {
@@ -29,11 +37,11 @@ const renderPhoto = (photo) => {
   modalLikes.textContent = photo.likes;
 };
 
-const closeModal = () => {
+const closeModalHandler = () => {
   hideModal();
 };
 
-modalCloseButton.addEventListener('click', closeModal);
+modalCloseButton.addEventListener('click', closeModalHandler);
 
 const renderStatisticComments = () => {
   commentCount.innerHTML = `${commentStatistic} из <span class="comments-count">${commentTotal}</span> комментариев`;
@@ -79,5 +87,3 @@ const openModal = (photo) => {
 };
 
 export { openModal }
-
-

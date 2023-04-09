@@ -1,6 +1,8 @@
 import { validateForm } from './validation.js';
 import { resetScale } from './scale.js';
 import { resetEffects } from './effects.js';
+import { postPhoto } from './api.js';
+import { showSuccess, showError } from './popups.js';
 
 const uploadFileInput = document.querySelector('.img-upload__input');
 const modalForm = document.querySelector('.img-upload__overlay');
@@ -15,11 +17,14 @@ const showModalForm = () => {
   imagePreview.src = URL.createObjectURL(fileImage);
   resetScale();
   resetEffects();
+  document.addEventListener('keydown', escapeFormHandler);
 };
 
 const hideModalForm = () => {
   modalForm.classList.add('hidden');
   document.body.classList.remove('modal-open');
+  form.reset();
+  document.removeEventListener('keydown', escapeFormHandler);
 };
 
 uploadFileInput.addEventListener('change', () => {
@@ -32,7 +37,28 @@ modalFormCloseButton.addEventListener('click', () => {
 });
 
 form.addEventListener('submit', (evt) => {
-  if (!validateForm()) {
-    evt.preventDefault();
+  evt.preventDefault();
+  if (validateForm()) {
+    postPhoto(new FormData(form))
+      .then((response) => {
+        if (response.ok) {
+          hideModalForm();
+          showSuccess();
+        } else {
+          showError();
+          document.removeEventListener('keydown', escapeFormHandler);
+        }
+      })
+      .catch(() => {
+        showError();
+        });
   }
 });
+
+const escapeFormHandler = (evt) => {
+  if (evt.key === 'Escape') {
+    hideModalForm();
+  }
+};
+
+export { escapeFormHandler };

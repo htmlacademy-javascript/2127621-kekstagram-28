@@ -1,6 +1,14 @@
-import { getPhotos } from './data.js';
-import { PHOTOS_COUNT } from './constans.js';
-import { renderThumbnails } from './thumbnail.js';
+import { ERROR_MESSAGE } from './constans.js';
 import './form.js';
+import { getPhotos } from './api.js';
+import { showAlert } from './utils.js';
+import { setFilters } from './filters.js';
 
-renderThumbnails(getPhotos(PHOTOS_COUNT));
+getPhotos()
+  .then((photos) => {
+    setFilters(photos);
+  })
+  .catch(() => {
+    showAlert(ERROR_MESSAGE);
+  });
+
