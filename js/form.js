@@ -10,6 +10,13 @@ const modalFormCloseButton = document.querySelector('.img-upload__cancel');
 const imagePreview = document.querySelector('.img-upload__preview img');
 const form = document.querySelector('.img-upload__form');
 
+
+const escapeFormHandler = (evt) => {
+  if (evt.key === 'Escape') {
+    hideModalForm();
+  }
+};
+
 const showModalForm = () => {
   modalForm.classList.remove('hidden');
   document.body.classList.add('modal-open');
@@ -54,11 +61,5 @@ form.addEventListener('submit', (evt) => {
       });
   }
 });
-
-const escapeFormHandler = (evt) => {
-  if (evt.key === 'Escape') {
-    hideModalForm();
-  }
-};
 
 export { escapeFormHandler };

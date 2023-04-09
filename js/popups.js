@@ -18,7 +18,7 @@ function escapeSuccessHandler(evt) {
   if (evt.key === 'Escape') {
     closeSuccessHandler();
   }
-};
+}
 
 const showSuccess = () => {
   const elementSuccess = templateSuccess.cloneNode(true);
@@ -44,7 +44,7 @@ function escapeErrorHandler(evt) {
   if (evt.key === 'Escape') {
     closeErrorHandler();
   }
-};
+}
 
 const showError = () => {
   const elementError = templateError.cloneNode(true);
