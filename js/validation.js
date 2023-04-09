@@ -63,4 +63,4 @@ pristine.addValidator(
 
 const validateForm = () => pristine.validate();
 
-export {validateForm};
+export { validateForm };

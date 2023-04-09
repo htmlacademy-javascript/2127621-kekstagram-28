@@ -51,7 +51,7 @@ form.addEventListener('submit', (evt) => {
       })
       .catch(() => {
         showError();
-        });
+      });
   }
 });
 
